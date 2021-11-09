@@ -1,4 +1,5 @@
 import { useState } from "react";
+import calculateSum from "./calculate";
 import "./App.css";
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
     operation: "+",
     sum: 0,
   });
+
+  console.log(state);
 
   const { number1, number2, operation, sum } = state;
 
@@ -35,21 +38,27 @@ function App() {
     }
   }
 
-  function calculateSum() {
-    switch (operation) {
-      case "+":
-        setState({ ...state, sum: number1 + number2 });
-        break;
+  // function calculateSum() {
+  //   switch (operation) {
+  //     case "+":
+  //       setState({ ...state, sum: number1 + number2 });
+  //       break;
 
-      case "-":
-        setState({ ...state, sum: number1 - number2 });
-        break;
+  //     case "-":
+  //       setState({ ...state, sum: number1 - number2 });
+  //       break;
 
-      default:
-        alert("Enter only '+' or '-' in operation field");
-        break;
-    }
-  }
+  //     default:
+  //       alert("Enter only '+' or '-' in operation field");
+  //       break;
+  //   }
+  // }
+
+  const handleCalculate = () => {
+    const calculatedValue = calculateSum(number1, number2, operation);
+
+    setState({ ...state, sum: calculatedValue });
+  };
 
   return (
     <div className="add">
@@ -76,7 +85,7 @@ function App() {
         onChange={handleInputChange}
         required
       />
-      <button onClick={calculateSum}>Calculate </button>
+      <button onClick={handleCalculate}>Calculate</button>
       <label>Result : </label>
       <input type="number" disabled value={sum} />
     </div>
