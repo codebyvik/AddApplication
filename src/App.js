@@ -10,8 +10,6 @@ function App() {
     sum: 0,
   });
 
-  console.log(state);
-
   const { number1, number2, operation, sum } = state;
 
   function handleInputChange(e) {
@@ -37,22 +35,6 @@ function App() {
         break;
     }
   }
-
-  // function calculateSum() {
-  //   switch (operation) {
-  //     case "+":
-  //       setState({ ...state, sum: number1 + number2 });
-  //       break;
-
-  //     case "-":
-  //       setState({ ...state, sum: number1 - number2 });
-  //       break;
-
-  //     default:
-  //       alert("Enter only '+' or '-' in operation field");
-  //       break;
-  //   }
-  // }
 
   const handleCalculate = () => {
     const calculatedValue = calculateSum(number1, number2, operation);
