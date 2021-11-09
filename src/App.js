@@ -1,6 +1,7 @@
 import { useState } from "react";
 import calculateSum from "./calculate";
 import "./App.css";
+import calculate from "./calculateClass";
 
 function App() {
   const [state, setState] = useState({
@@ -37,9 +38,30 @@ function App() {
   }
 
   const handleCalculate = () => {
-    const calculatedValue = calculateSum(number1, number2, operation);
+    // const calculatedValue = calculateSum(number1, number2, operation);
+    // setState({ ...state, sum: calculatedValue });
 
-    setState({ ...state, sum: calculatedValue });
+    // calculate implemented using class (Public)
+    // const calculatedValue = new calculate(
+    //   number1,
+    //   number2,
+    //   operation
+    // ).returnSum();
+    // setState({ ...state, sum: calculatedValue });
+
+    // calculate implemented using class (Private)
+    const calculatedValue = new calculate(
+      number1,
+      number2,
+      operation
+    ).returnProductAndSum();
+
+    setState({
+      ...state,
+      sum: calculatedValue.sum,
+    });
+
+    console.log("product", calculatedValue.product);
   };
 
   return (
