@@ -25,7 +25,7 @@ class calculate {
     }
   }
 
-  returnProductAndSum(state, setState) {
+  returnProductAndSum() {
     return {
       sum: this.returnSum(),
       product: this.product,

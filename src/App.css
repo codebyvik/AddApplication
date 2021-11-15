@@ -12,3 +12,8 @@
   height: 2rem;
   margin-bottom: 1rem;
 }
+
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
